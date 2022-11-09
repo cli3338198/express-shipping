@@ -22,4 +22,21 @@ describe("POST /", function () {
       .send();
     expect(resp.statusCode).toEqual(400);
   });
+
+  test("throws error if invalid id & missing name", async function () {
+    const resp = await request(app)
+      .post("/shipments")
+      .send(
+        {
+          "productId": 100,
+          "addr": "SOME ADDR",
+          "zip": "SOME ZIP"
+        });
+
+    expect(resp.statusCode).toEqual(400);
+    expect(resp.body.error.message).toEqual([
+      "instance.productId must be greater than or equal to 1000",
+			"instance requires property \"name\""
+    ])
+  })
 });

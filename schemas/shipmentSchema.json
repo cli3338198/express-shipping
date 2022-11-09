@@ -8,8 +8,8 @@
     "productId": { "type": "integer", "minimum": 1000 },
     "name": { "type": "string" },
     "addr": { "type": "string" },
-    "zipcode": { "type": "string" }
+    "zip": { "type": "string" }
   },
   "additionalProperties": false,
-  "required": ["productId", "name", "addr", "zipcode"]
+  "required": ["productId", "name", "addr", "zip"]
 }

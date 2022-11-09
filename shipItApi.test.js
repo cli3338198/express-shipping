@@ -32,7 +32,7 @@ test("shipProduct", async function () {
 test("shipProduct with bad data", async function () {
   axiosMock.onPost(`${BASE_URL}`).reply(200, {
     receipt: {
-      itemId: 1001,
+      itemId: "1001",
       name: "SOME THING",
       addr: "SOME ADDR",
       zip: "SOME ZIP",
@@ -41,7 +41,7 @@ test("shipProduct with bad data", async function () {
   });
 
   const shipId = await shipProduct({
-    productId: 1001,
+    productId: "1001",
     name: "SOME THING",
     addr: "SOME ADDR",
     zip: "SOME ZIP",
